@@ -15,7 +15,7 @@ server.get("/", (req, res) => {
   res.send("<h1>If you can see this that mean server it okay? (sdsarun)</h1>");
 })
 
-server.get("/country", async (req, res) => {
+server.get("/api/country", async (req, res) => {
   const countries = await Country.find({});
   res.send(countries);
 })
