@@ -12,7 +12,7 @@ server.use(express.json());
 server.use(cors());
 
 server.get("/", (req, res) => {
-  res.send("<h1>If you can see this that mean server it okay? (sdsarun)</h1>");
+  res.send("<h1>If you can see this that mean server it okay? (sdsarun)</h1><p>GET - <a href='/api/country'>" + "/api/country" + "</a></p>");
 })
 
 server.get("/api/country", async (req, res) => {
