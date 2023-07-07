@@ -61,7 +61,7 @@ async function fetch(month, year) {
 
 async function storeToDatabase() {
 	try {
-		await mongoose.connect("mongodb+srv://pretyboyiz:nn21092538@jason.gyhm9f9.mongodb.net/?retryWrites=true&w=majority", {dbName: "jobs_assignment"});
+		await mongoose.connect("mongodb+srv://@jason.gyhm9f9.mongodb.net/?retryWrites=true&w=majority", {dbName: "jobs_assignment"});
 		// console.log("Connection successfully");
 		// const ct = new Country({
 		//   name: "USA",
