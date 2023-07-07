@@ -3,9 +3,11 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv"
+import os from "os";
 dotenv.config();
 
-const { PORT, HOSTNAME, MONGODB_USERNAME, MONGODB_PASSWORD, MONGODB_DBNAME } = process.env;
+const { MONGODB_USERNAME, MONGODB_PASSWORD, MONGODB_DBNAME } = process.env;
+const PORT = process.env.PORT || 3001;
 
 const server = express();
 server.use(express.json());
@@ -20,8 +22,8 @@ server.get("/api/country", async (req, res) => {
   res.send(countries);
 })
 
-server.listen(PORT, HOSTNAME, async () => {
-  console.log(`Server listen on http://${HOSTNAME}:${PORT}`);
+server.listen(PORT || 3001, async () => {
+  console.log(`Server listen on port ${PORT}`);
   try {
     await mongoose.connect(`mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@jason.gyhm9f9.mongodb.net/?retryWrites=true&w=majority`, {
       dbName: MONGODB_DBNAME
